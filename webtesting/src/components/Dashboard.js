@@ -1,17 +1,20 @@
 import React from 'react';
 
-// Buttons:
+// 4 Buttons:
 //  strike
 //  ball
 //  foul
 //  hit
 
-const Dashboard = ({ strike, ball, foul, hit }) => {
+const Dashboard = ({ addStrike, addBall, addFoul, addHit }) => {
 
   return (
-    <>
-
-    </>
+    <div>
+      <button onClick={addStrike}>Strike</button>
+      <button onClick={addBall}>Ball</button>
+      <button onClick={addFoul}>Foul</button>
+      <button onClick={addHit}>Hit</button>
+    </div>
   )
 };
 

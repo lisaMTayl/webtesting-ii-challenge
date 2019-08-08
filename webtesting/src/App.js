@@ -3,23 +3,46 @@ import Display from './components/Display';
 import Dashboard from './components/Dashboard';
 import './App.css';
 
-function App() {
+const App = () => {
 
-  const [count, setCount] = useState(0);
+  const [strikes, setStrikes] = useState(0);
+  const [balls, setBalls] = useState(0);
+
+  const addStrike = () => {
+    if (strikes < 2) {
+      setStrikes(strikes + 1)
+    } else {
+      setStrikes(0);
+    }
+    return strikes;
+  };
+
+  const addBall = () => {
+    if (balls < 3) {
+      setBalls(balls +1)
+    } else {
+      setBalls(0);
+    }
+    return balls;
+  };
+
+  const resetCount = () => {
+   setStrikes(0);
+   setBalls(0);
+  };
+
+
 
   return (
     <div className="App">
-
+      <h1>Zephyr's Field</h1>
+      <Display strikes = {strikes} balls = {balls}/>
+      <Dashboard addStrike = {addStrike} addBall = {addBall} />
     </div>
   );
-}
+};
 
 export default App;
 
-{/*
-### Count Rules
 
-- balls and strikes reset to 0 when a player reaches 3 strikes or 4 balls.
-- balls and strikes reset to 0 when a `hit` is recorded.
-- a `foul` increases strikes up to 2. With no strikes, a foul makes it 1 strike. With 1 strike, a foul makes it 2 strikes. With two strikes a foul has no effect, count stays at 2 strikes.
-  */}
+

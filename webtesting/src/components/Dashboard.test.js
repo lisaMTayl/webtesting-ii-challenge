@@ -1,6 +1,16 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import '@testing-library/react/cleanup-after-each';
+import { render } from "@testing-library/react";
+import "@testing-library/react/cleanup-after-each";
+import Dashboard from './Dashboard';
+
+
+describe('Dashboard Component', () => {
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
+    ReactDom.render(<Dashboard />, div);
+    ReactDom.unmountComponentAtNode(div);
+  });
+});
 
 {/*
 ### Count Rules
